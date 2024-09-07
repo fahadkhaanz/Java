@@ -17,7 +17,7 @@ public class HelloController {
     }
 
     @GetMapping("/nullpointer")
-    public String GetMessage() {
+    public String getMessage() {
         String message = null;
         if (message == null){
             return "Message is null";
