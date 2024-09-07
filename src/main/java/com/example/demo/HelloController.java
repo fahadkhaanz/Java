@@ -8,13 +8,20 @@ public class HelloController {
 
     @GetMapping("/buggy")
     public String getResult() {
-        int result = 10 / 0;
-        return "This will never be reached";
+        try{
+            int result = 10 / 0;
+            return "This will never be reached";
+        } catch (Exception e){
+            return "An error occurred: " + e.getMessage();
+        }
     }
 
     @GetMapping("/nullpointer")
     public String GetMessage() {
         String message = null;
+        if (message == null){
+            return "Message is null";
+        }
         return message.toUpperCase();
     }
 }
